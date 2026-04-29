@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZIGAB | Smart Disaster Dashboard</title>
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- EXTERNAL CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><i class="fas fa-shield-virus"></i> ZIGAB</div>
+        <div class="menu-item active" onclick="showSection('dashboard', this)"><i class="fas fa-chart-line"></i> Dashboard</div>
+        <div class="menu-item" onclick="showSection('map', this)"><i class="fas fa-map-marked-alt"></i> Peta Risiko</div>
+        <div class="menu-item" onclick="showSection('logistics', this)"><i class="fas fa-truck-loading"></i> Logistik</div>
+        <div class="menu-item" onclick="showSection('health', this)"><i class="fas fa-hospital"></i> Layanan Kesehatan</div>
+    </nav>
+
+    <main>
+        <header>
+            <h1 id="section-title">Dashboard Utama</h1>
+            <div id="clock" style="font-weight: 500; color: #7f8c8d;"></div>
+        </header>
+
+        <div id="dashboard" class="content-section active">
+            <div class="stats-grid">
+                <div class="stat-card risk"><h3>Status</h3><div style="font-size: 1.5rem; font-weight: bold;">SIAGA SEMERU</div></div>
+                <div class="stat-card"><h3>Evakuasi</h3><div style="font-size: 1.5rem; font-weight: bold;">1.240 Jiwa</div></div>
+                <div class="stat-card"><h3>Logistik</h3><div style="font-size: 1.5rem; font-weight: bold;">85% Aman</div></div>
+                <div class="stat-card"><h3>RS Tersedia</h3><div style="font-size: 1.5rem; font-weight: bold;">12 Titik</div></div>
+            </div>
+            <div class="main-grid">
+                <div class="map-container">
+                    <div style="text-align: center;">
+                        <i class="fas fa-satellite fa-3x" style="color: #7f8c8d; margin-bottom: 10px;"></i>
+                        <p>Live Monitoring System Active</p>
+                    </div>
+                </div>
+                <div class="panel">
+                    <h3>Quick Actions</h3>
+                    <button class="btn-action" onclick="alert('Mengaktifkan Protokol Evakuasi...')">AKTIFKAN SIRINE</button>
+                    <button class="btn-action" style="background: var(--warning); color: #2c3e50;">KIRIM ALERT SMS</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="map" class="content-section">
+            <div class="panel" style="height: 600px;">
+                <h3>Analisis Spasial & Temporal</h3>
+                <p>Visualisasi Heatmap Risiko Berbasis AI (XGBoost)</p>
+                <div class="map-container" style="background: #a0aec0; margin-top: 20px;">
+                    <div style="width: 100px; height: 100px; background: rgba(231, 76, 60, 0.6); border-radius: 50%; filter: blur(15px);"></div>
+                    <span style="position: absolute; color: white; font-weight: bold;">ZONA BAHAYA I</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="logistics" class="content-section">
+            <div class="panel">
+                <h3>Distribusi Logistik Bantuan</h3>
+                <div class="list-item"><span>Tenda Pengungsi (Kec. Candipuro)</span><span class="badge" style="background: var(--success);">Tersedia 20</span></div>
+                <div class="list-item"><span>Paket Sembako (Posko Utama)</span><span class="badge" style="background: var(--danger);">Sisa 5</span></div>
+                <div class="list-item"><span>Obat-obatan (Kec. Pronojiwo)</span><span class="badge" style="background: var(--success);">Tersedia 100+</span></div>
+                <button class="btn-action" style="margin-top: 20px;">OPTIMASI RUTE PENGIRIMAN (VRP)</button>
+            </div>
+        </div>
+
+        <div id="health" class="content-section">
+            <div class="panel">
+                <h3>Smart Healthcare Allocation</h3>
+                <div class="list-item"><span>RSUD Dr. Haryoto</span><b>80/100 Bed</b></div>
+                <div class="list-item"><span>RS Bhayangkara</span><b>45/60 Bed</b></div>
+                <div class="list-item"><span>Puskesmas Pasirian</span><b style="color: var(--danger);">PENUH</b></div>
+                <div class="list-item"><span>RSUD Pasirian</span><b style="color: var(--danger);">PENUH</b></div>
+                <button class="btn-action">ALOKASIKAN PASIEN BARU</button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- EXTERNAL JS -->
+    <script src="script.js"></script>
+</body>
+</html>
